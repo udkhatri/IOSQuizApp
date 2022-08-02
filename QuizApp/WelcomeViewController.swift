@@ -15,6 +15,9 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onGuestButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToGuestLoginScreen", sender: self)
+    }
     @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToSignUpScreen", sender: self)
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011036F72899B6DE00190C50 /* GuestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011036F62899B6DE00190C50 /* GuestLoginViewController.swift */; };
 		01CDE9EB2891F5EB002DC49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CDE9EA2891F5EB002DC49C /* AppDelegate.swift */; };
 		01CDE9ED2891F5EB002DC49C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CDE9EC2891F5EB002DC49C /* SceneDelegate.swift */; };
 		01CDE9EF2891F5EB002DC49C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CDE9EE2891F5EB002DC49C /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011036F62899B6DE00190C50 /* GuestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLoginViewController.swift; sourceTree = "<group>"; };
 		01CDE9E72891F5EB002DC49C /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CDE9EA2891F5EB002DC49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01CDE9EC2891F5EB002DC49C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				01CDE9EC2891F5EB002DC49C /* SceneDelegate.swift */,
 				01CDE9EE2891F5EB002DC49C /* ViewController.swift */,
 				01CDE9F02891F5EB002DC49C /* Main.storyboard */,
+				011036F62899B6DE00190C50 /* GuestLoginViewController.swift */,
 				01E2ABF42893479C0042361F /* LoginController.swift */,
 				01CDEA0228924D0D002DC49C /* SignUpViewController.swift */,
 				01CDEA0028923AF8002DC49C /* WelcomeViewController.swift */,
@@ -151,6 +154,7 @@
 				01E2ABF52893479C0042361F /* LoginController.swift in Sources */,
 				01CDEA0128923AF8002DC49C /* WelcomeViewController.swift in Sources */,
 				01CDE9EB2891F5EB002DC49C /* AppDelegate.swift in Sources */,
+				011036F72899B6DE00190C50 /* GuestLoginViewController.swift in Sources */,
 				01CDE9ED2891F5EB002DC49C /* SceneDelegate.swift in Sources */,
 				01CDEA0328924D0E002DC49C /* SignUpViewController.swift in Sources */,
 			);
