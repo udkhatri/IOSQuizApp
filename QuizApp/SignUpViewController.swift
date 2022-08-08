@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController {
                     guard let user = authResult?.user else {return}
                     
                     guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    
+                    self.showAlert(title: "Signup successful!", message: user.uid ?? "")
                     self.createUser(name: name ?? "", email: user.email ?? "", id: user.uid ?? "", signupMode: providerID)
                     
                 }
@@ -70,7 +70,6 @@ class SignUpViewController: UIViewController {
         }
     }
     func createUser(name:String, email:String,id:String, signupMode:String){
-        let ref: DocumentReference? = nil
         let userRed = db.collection("users").document(id)
         userRed.setData([
             "name": name,
