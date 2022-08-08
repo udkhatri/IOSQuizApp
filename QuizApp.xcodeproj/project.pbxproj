@@ -20,6 +20,7 @@
 		5EBAD9EE28A1A18E008CD86E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBAD9ED28A1A18E008CD86E /* FirebaseAnalytics */; };
 		5EBAD9F028A1A18E008CD86E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBAD9EF28A1A18E008CD86E /* FirebaseAuth */; };
 		5EBAD9F228A1A1BC008CD86E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EBAD9F128A1A1BC008CD86E /* GoogleService-Info.plist */; };
+		5EBAD9F528A1B187008CD86E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBAD9F428A1B187008CD86E /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 			files = (
 				5EBAD9EE28A1A18E008CD86E /* FirebaseAnalytics in Frameworks */,
 				5EBAD9F028A1A18E008CD86E /* FirebaseAuth in Frameworks */,
+				5EBAD9F528A1B187008CD86E /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +107,7 @@
 			packageProductDependencies = (
 				5EBAD9ED28A1A18E008CD86E /* FirebaseAnalytics */,
 				5EBAD9EF28A1A18E008CD86E /* FirebaseAuth */,
+				5EBAD9F428A1B187008CD86E /* FirebaseFirestore */,
 			);
 			productName = QuizApp;
 			productReference = 01CDE9E72891F5EB002DC49C /* QuizApp.app */;
@@ -136,6 +139,7 @@
 			mainGroup = 01CDE9DE2891F5EB002DC49C;
 			packageReferences = (
 				5EBAD9EC28A1A18E008CD86E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5EBAD9F328A1B187008CD86E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 01CDE9E82891F5EB002DC49C /* Products */;
 			projectDirPath = "";
@@ -397,6 +401,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		5EBAD9F328A1B187008CD86E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -409,6 +421,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5EBAD9EC28A1A18E008CD86E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		5EBAD9F428A1B187008CD86E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EBAD9F328A1B187008CD86E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
