@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class WelcomeViewController: UIViewController {
 
@@ -16,7 +17,24 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func onGuestButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToGuestLoginScreen", sender: self)
+        Auth.auth().signInAnonymously { authResult, error in
+            var isSuccess: Bool = true
+            if let error = error {
+                isSuccess = false
+                self.showAlert(title: "Signup failed!", message: error.localizedDescription)
+                print("Err result: ",error )
+            }else{
+                if isSuccess == true {
+                    // Fetch the user's info
+                    guard let user = authResult?.user else {return}
+//                    guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
+                    self.showAlert(title: "Signup successful!", message: user.uid)
+                    
+                }
+               
+            }
+        }
+//        performSegue(withIdentifier: "goToGuestLoginScreen", sender: self)
     }
     @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToSignUpScreen", sender: self)
@@ -26,6 +44,11 @@ class WelcomeViewController: UIViewController {
     
         performSegue(withIdentifier: "goToLoginScreen", sender: self)
     }
+    func showAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+         }
     /*
     // MARK: - Navigation
 
