@@ -16,6 +16,9 @@ class GuestLoginViewController: UIViewController {
     }
     
 
+    @IBAction func onGuestLoginTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToHomeScreen", sender: self)
+    }
     /*
     // MARK: - Navigation
 

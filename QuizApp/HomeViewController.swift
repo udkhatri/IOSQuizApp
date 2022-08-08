@@ -1,13 +1,13 @@
 //
-//  LoginController.swift
+//  HomeViewController.swift
 //  QuizApp
 //
-//  Created by Harprit on 2022-07-28.
+//  Created by Harprit on 2022-08-08.
 //
 
 import UIKit
 
-class LoginController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,10 +15,10 @@ class LoginController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func onLoginButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHomeScreen", sender: self)
+
+    @IBAction func onHighScoreButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToHighScoreScreen", sender: self)
     }
-    
     /*
     // MARK: - Navigation
 
