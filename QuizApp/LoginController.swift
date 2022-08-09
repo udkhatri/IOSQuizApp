@@ -19,6 +19,10 @@ class LoginController: UIViewController {
         performSegue(withIdentifier: "goToHomeScreen", sender: self)
     }
     
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

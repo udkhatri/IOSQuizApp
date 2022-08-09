@@ -17,9 +17,14 @@ class HomeViewController: UIViewController {
     
 
 
-    @IBAction func onStartButtonTapped(_ sender: UIButton) {
+
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    @IBAction func onStartButtonClick(_ sender: UIButton) {
         performSegue(withIdentifier: "goToDifficultyLevelsScreen", sender: self)
     }
+    
     @IBAction func onHighScoreButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToHighScoreScreen", sender: self)
     }

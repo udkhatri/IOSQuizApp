@@ -15,6 +15,9 @@ class DifficultyLevelsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     @IBAction func onScoreBoardButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToPersonalScoreScreen", sender: self)
     }

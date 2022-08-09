@@ -15,6 +15,9 @@ class HighScoreViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     @IBAction func onLeaderScoreButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToLeaderScoreScreen", sender: self)
     }

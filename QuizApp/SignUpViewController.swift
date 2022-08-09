@@ -15,7 +15,13 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToLoginScreen", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

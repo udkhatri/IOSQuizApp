@@ -16,6 +16,9 @@ class GuestLoginViewController: UIViewController {
     }
     
 
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     @IBAction func onGuestLoginTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToHomeScreen", sender: self)
     }

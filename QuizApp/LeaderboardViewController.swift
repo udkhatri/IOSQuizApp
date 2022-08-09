@@ -16,6 +16,9 @@ class LeaderboardViewController: UIViewController {
     }
     
 
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
