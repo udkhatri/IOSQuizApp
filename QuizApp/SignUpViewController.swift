@@ -23,6 +23,14 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToLoginScreen", sender: self)
+    }
+
     @IBAction func nameValueChange(_ sender: Any) {
     }
     @IBAction func onSignupClick(_ sender: UIButton) {
@@ -90,7 +98,7 @@ class SignUpViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
          }
-        
+
     
     /*
     // MARK: - Navigation

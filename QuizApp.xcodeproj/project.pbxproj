@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0100315428A205FC00AEDA8F /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100315328A205FC00AEDA8F /* LeaderboardViewController.swift */; };
 		011036F72899B6DE00190C50 /* GuestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011036F62899B6DE00190C50 /* GuestLoginViewController.swift */; };
+		01B22CDC28A1800B00EAD31A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CDB28A1800B00EAD31A /* HomeViewController.swift */; };
+		01B22CDE28A1857000EAD31A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CDD28A1857000EAD31A /* HighScoreViewController.swift */; };
+		01B22CE028A1A8C300EAD31A /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CDF28A1A8C300EAD31A /* PersonalViewController.swift */; };
+		01B22CE228A1B92B00EAD31A /* DifficultyLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CE128A1B92B00EAD31A /* DifficultyLevelsViewController.swift */; };
+		01B22CE428A1BBB000EAD31A /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CE328A1BBB000EAD31A /* QuestionViewController.swift */; };
 		01CDE9EB2891F5EB002DC49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CDE9EA2891F5EB002DC49C /* AppDelegate.swift */; };
 		01CDE9ED2891F5EB002DC49C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CDE9EC2891F5EB002DC49C /* SceneDelegate.swift */; };
 		01CDE9EF2891F5EB002DC49C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CDE9EE2891F5EB002DC49C /* ViewController.swift */; };
@@ -24,7 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0100315328A205FC00AEDA8F /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		011036F62899B6DE00190C50 /* GuestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLoginViewController.swift; sourceTree = "<group>"; };
+		01B22CDB28A1800B00EAD31A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		01B22CDD28A1857000EAD31A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		01B22CDF28A1A8C300EAD31A /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		01B22CE128A1B92B00EAD31A /* DifficultyLevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyLevelsViewController.swift; sourceTree = "<group>"; };
+		01B22CE328A1BBB000EAD31A /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		01CDE9E72891F5EB002DC49C /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CDE9EA2891F5EB002DC49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01CDE9EC2891F5EB002DC49C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +88,12 @@
 				01CDE9EC2891F5EB002DC49C /* SceneDelegate.swift */,
 				01CDE9EE2891F5EB002DC49C /* ViewController.swift */,
 				01CDE9F02891F5EB002DC49C /* Main.storyboard */,
+				0100315328A205FC00AEDA8F /* LeaderboardViewController.swift */,
+				01B22CE328A1BBB000EAD31A /* QuestionViewController.swift */,
+				01B22CE128A1B92B00EAD31A /* DifficultyLevelsViewController.swift */,
+				01B22CDF28A1A8C300EAD31A /* PersonalViewController.swift */,
+				01B22CDD28A1857000EAD31A /* HighScoreViewController.swift */,
+				01B22CDB28A1800B00EAD31A /* HomeViewController.swift */,
 				011036F62899B6DE00190C50 /* GuestLoginViewController.swift */,
 				01E2ABF42893479C0042361F /* LoginController.swift */,
 				01CDEA0228924D0D002DC49C /* SignUpViewController.swift */,
@@ -171,11 +189,17 @@
 			files = (
 				01CDE9EF2891F5EB002DC49C /* ViewController.swift in Sources */,
 				01E2ABF52893479C0042361F /* LoginController.swift in Sources */,
+				0100315428A205FC00AEDA8F /* LeaderboardViewController.swift in Sources */,
+				01B22CE428A1BBB000EAD31A /* QuestionViewController.swift in Sources */,
 				01CDEA0128923AF8002DC49C /* WelcomeViewController.swift in Sources */,
+				01B22CDC28A1800B00EAD31A /* HomeViewController.swift in Sources */,
 				01CDE9EB2891F5EB002DC49C /* AppDelegate.swift in Sources */,
+				01B22CE228A1B92B00EAD31A /* DifficultyLevelsViewController.swift in Sources */,
 				011036F72899B6DE00190C50 /* GuestLoginViewController.swift in Sources */,
+				01B22CE028A1A8C300EAD31A /* PersonalViewController.swift in Sources */,
 				01CDE9ED2891F5EB002DC49C /* SceneDelegate.swift in Sources */,
 				01CDEA0328924D0E002DC49C /* SignUpViewController.swift in Sources */,
+				01B22CDE28A1857000EAD31A /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

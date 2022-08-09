@@ -18,6 +18,15 @@ class LoginController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
+    @IBAction func onLoginButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToHomeScreen", sender: self)
+    }
+    
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+
     @IBAction func loginPressed(_ sender: Any) {
         let email = emailValue.text ?? ""
         let password = passwordValue.text ?? ""
@@ -48,6 +57,7 @@ class LoginController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
              }
+
     
     /*
     // MARK: - Navigation

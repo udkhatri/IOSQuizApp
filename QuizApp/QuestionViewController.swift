@@ -1,13 +1,13 @@
 //
-//  GuestLoginViewController.swift
+//  QuestionViewController.swift
 //  QuizApp
 //
-//  Created by Harprit on 2022-08-02.
+//  Created by Harprit on 2022-08-08.
 //
 
 import UIKit
 
-class GuestLoginViewController: UIViewController {
+class QuestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +16,8 @@ class GuestLoginViewController: UIViewController {
     }
     
 
-    @IBAction func onBackButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    @IBAction func onGuestLoginTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHomeScreen", sender: self)
+    @IBAction func onQuitButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSelectCategoryScreen", sender: self)
     }
     /*
     // MARK: - Navigation
