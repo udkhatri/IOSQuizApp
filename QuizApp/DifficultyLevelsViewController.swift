@@ -6,24 +6,27 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class DifficultyLevelsViewController: UIViewController {
-
+    let db = Firestore.firestore()
+    
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userScore: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        checkUser()
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func onBackButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
     @IBAction func onScoreBoardButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToPersonalScoreScreen", sender: self)
     }
     
     @IBAction func onLogoutButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToMainScreen", sender: self)
+        logoutUser()
     }
     @IBAction func onDifficultButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToQuestionScreen", sender: self)
@@ -34,6 +37,51 @@ class DifficultyLevelsViewController: UIViewController {
     @IBAction func onEasyButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToQuestionScreen", sender: self)
     }
+   
+    func checkUser(){
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            if let user = user {
+              let uid = user.uid
+                getUserData(id: uid)
+            }
+        } else {
+            dismiss(animated: true)
+        }
+    }
+    func logoutUser() {
+        do {
+            try Auth.auth().signOut()
+        }
+        catch {
+            print("already logged out")
+        }
+        dismiss(animated: true)
+    }
+    func getUserData(id: String){
+        let docRef = db.collection("users").document(id)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data()
+                let name = dataDescription?["name"] as? String ?? "Guest"
+                let score = dataDescription?["score"] as? String ?? "0"
+                print("Document data: \(name)")
+                
+                self.userName.text = "Hello, \(name)"
+                self.userScore.text = score
+            } else {
+                print("Document does not exist")
+            }
+        }
+       
+    }
+    
+ 
+    func showAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+         }
     /*
     // MARK: - Navigation
 

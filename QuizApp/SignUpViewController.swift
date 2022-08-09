@@ -69,7 +69,7 @@ class SignUpViewController: UIViewController {
                     guard let user = authResult?.user else {return}
                     
                     guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    self.showAlert(title: "Signup successful!", message: user.uid )
+                    self.showAlert(title: "Signup successful", message: "Login by pressing back from this menu to access your account" )
                     self.createUser(name: name , email: user.email ?? "", id: user.uid , signupMode: providerID)
                     self.goToHomeScreen()
                 }
