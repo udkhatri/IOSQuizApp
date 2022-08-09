@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  LeaderboardViewController.swift
 //  QuizApp
 //
 //  Created by Harprit on 2022-08-08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class LeaderboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,13 +16,6 @@ class HomeViewController: UIViewController {
     }
     
 
-
-    @IBAction func onStartButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToDifficultyLevelsScreen", sender: self)
-    }
-    @IBAction func onHighScoreButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHighScoreScreen", sender: self)
-    }
     /*
     // MARK: - Navigation
 

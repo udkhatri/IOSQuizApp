@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  QuestionViewController.swift
 //  QuizApp
 //
 //  Created by Harprit on 2022-08-08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class QuestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +16,8 @@ class HomeViewController: UIViewController {
     }
     
 
-
-    @IBAction func onStartButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToDifficultyLevelsScreen", sender: self)
-    }
-    @IBAction func onHighScoreButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHighScoreScreen", sender: self)
+    @IBAction func onQuitButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSelectCategoryScreen", sender: self)
     }
     /*
     // MARK: - Navigation
