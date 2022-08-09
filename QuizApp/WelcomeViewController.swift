@@ -28,13 +28,16 @@ class WelcomeViewController: UIViewController {
                     // Fetch the user's info
                     guard let user = authResult?.user else {return}
 //                    guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    self.showAlert(title: "Signup successful!", message: user.uid)
+                    self.goToHomeScreen()
                     
                 }
                
             }
         }
 //        performSegue(withIdentifier: "goToGuestLoginScreen", sender: self)
+    }
+    func goToHomeScreen(){
+        performSegue(withIdentifier: "gotoHomeScreen", sender: self)
     }
     @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToSignUpScreen", sender: self)
