@@ -7,9 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class WelcomeViewController: UIViewController {
-
+    let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,14 +28,34 @@ class WelcomeViewController: UIViewController {
                 if isSuccess == true {
                     // Fetch the user's info
                     guard let user = authResult?.user else {return}
-//                    guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    self.showAlert(title: "Signup successful!", message: user.uid)
-                    
+                    guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
+                    self.createUser(name:"Guest",email:"nil", id: user.uid, signupMode: providerID)
+                    self.goToHomeScreen()
                 }
                
             }
         }
 //        performSegue(withIdentifier: "goToGuestLoginScreen", sender: self)
+    }
+ 
+    func createUser(name:String, email:String,id:String, signupMode:String){
+        let userRed = db.collection("users").document(id)
+        userRed.setData([
+            "name": name,
+            "email": email,
+            "score": 0,
+            "id":id,
+            "signupMode": signupMode
+        ]){ err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(userRed.documentID)")
+            }
+        }
+    }
+    func goToHomeScreen(){
+        performSegue(withIdentifier: "gotoHomeScreen", sender: self)
     }
     @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToSignUpScreen", sender: self)

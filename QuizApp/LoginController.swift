@@ -20,14 +20,6 @@ class LoginController: UIViewController {
     
 
     @IBAction func onLoginButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHomeScreen", sender: self)
-    }
-    
-    @IBAction func onBackButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-
-    @IBAction func loginPressed(_ sender: Any) {
         let email = emailValue.text ?? ""
         let password = passwordValue.text ?? ""
         if(email != "" && password != ""){
@@ -40,10 +32,10 @@ class LoginController: UIViewController {
                     if isSuccess == true {
                         // Fetch the user's info
                         guard let uid = authResult?.user.uid else {return}
-                        self.showAlert(title:"Login Succesfull",message: uid)
+                        self.goToHomeScreen()
                         // Safely unwrap the boolean value rather than forcing it with "!" which could crash your app if a nil value is found
                         guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                       
+//                        performSegue(withIdentifier: "goToSelectCategoryScreen", sender: self)
                         print("Got info: ",providerID, "ID is: ",uid)
                     }
                 }
@@ -51,6 +43,18 @@ class LoginController: UIViewController {
         }else{
             self.showAlert(title:"Empty field!",message: "All the fields are compulsory please fill all the fields.")
         }
+       
+    }
+    func goToHomeScreen(){
+        performSegue(withIdentifier: "gotoHomeScreen", sender: self)
+    }
+    
+    @IBAction func onBackButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+
+    @IBAction func loginPressed(_ sender: Any) {
+      
     }
         func showAlert(title:String, message:String){
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

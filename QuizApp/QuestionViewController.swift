@@ -19,6 +19,7 @@ class QuestionViewController: UIViewController {
     @IBAction func onQuitButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToSelectCategoryScreen", sender: self)
     }
+ 
     /*
     // MARK: - Navigation
 

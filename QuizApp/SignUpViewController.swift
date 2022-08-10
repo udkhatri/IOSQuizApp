@@ -28,12 +28,6 @@ class SignUpViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBAction func onSignUpButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToLoginScreen", sender: self)
-    }
-
-    @IBAction func nameValueChange(_ sender: Any) {
-    }
-    @IBAction func onSignupClick(_ sender: UIButton) {
         let email = emailField.text ?? ""
         let password = passwordField.text ?? ""
         let passwordCheck = passwordReEnterField.text ?? ""
@@ -53,7 +47,13 @@ class SignUpViewController: UIViewController {
             }
            
         }
-        
+    }
+
+    @IBAction func nameValueChange(_ sender: Any) {
+    }
+    
+    func goToHomeScreen(){
+        performSegue(withIdentifier: "gotoHomeScreen", sender: self)
     }
     func signUpUser (email: String, password: String, name:String){
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -69,9 +69,9 @@ class SignUpViewController: UIViewController {
                     guard let user = authResult?.user else {return}
                     
                     guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    self.showAlert(title: "Signup successful!", message: user.uid ?? "")
-                    self.createUser(name: name ?? "", email: user.email ?? "", id: user.uid ?? "", signupMode: providerID)
-                    
+                    self.showAlert(title: "Signup successful", message: "Login by pressing back from this menu to access your account" )
+                    self.createUser(name: name , email: user.email ?? "", id: user.uid , signupMode: providerID)
+                    self.goToHomeScreen()
                 }
                
             }
