@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0100315428A205FC00AEDA8F /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100315328A205FC00AEDA8F /* LeaderboardViewController.swift */; };
 		011036F72899B6DE00190C50 /* GuestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011036F62899B6DE00190C50 /* GuestLoginViewController.swift */; };
+		014173A828A4971A0006A02A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 014173A728A4971A0006A02A /* GoogleService-Info.plist */; };
 		01B22CDC28A1800B00EAD31A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CDB28A1800B00EAD31A /* HomeViewController.swift */; };
 		01B22CDE28A1857000EAD31A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CDD28A1857000EAD31A /* HighScoreViewController.swift */; };
 		01B22CE028A1A8C300EAD31A /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22CDF28A1A8C300EAD31A /* PersonalViewController.swift */; };
@@ -25,13 +26,13 @@
 		01E2ABF52893479C0042361F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2ABF42893479C0042361F /* LoginController.swift */; };
 		5EBAD9EE28A1A18E008CD86E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBAD9ED28A1A18E008CD86E /* FirebaseAnalytics */; };
 		5EBAD9F028A1A18E008CD86E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBAD9EF28A1A18E008CD86E /* FirebaseAuth */; };
-		5EBAD9F228A1A1BC008CD86E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EBAD9F128A1A1BC008CD86E /* GoogleService-Info.plist */; };
 		5EBAD9F528A1B187008CD86E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBAD9F428A1B187008CD86E /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0100315328A205FC00AEDA8F /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		011036F62899B6DE00190C50 /* GuestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLoginViewController.swift; sourceTree = "<group>"; };
+		014173A728A4971A0006A02A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01B22CDB28A1800B00EAD31A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		01B22CDD28A1857000EAD31A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		01B22CDF28A1A8C300EAD31A /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		01CDEA0028923AF8002DC49C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		01CDEA0228924D0D002DC49C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		01E2ABF42893479C0042361F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		5EBAD9F128A1A1BC008CD86E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +98,10 @@
 				01E2ABF42893479C0042361F /* LoginController.swift */,
 				01CDEA0228924D0D002DC49C /* SignUpViewController.swift */,
 				01CDEA0028923AF8002DC49C /* WelcomeViewController.swift */,
-				5EBAD9F128A1A1BC008CD86E /* GoogleService-Info.plist */,
 				01CDE9F32891F5EB002DC49C /* Assets.xcassets */,
 				01CDE9F52891F5EB002DC49C /* LaunchScreen.storyboard */,
 				01CDE9F82891F5EB002DC49C /* Info.plist */,
+				014173A728A4971A0006A02A /* GoogleService-Info.plist */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01CDE9F72891F5EB002DC49C /* LaunchScreen.storyboard in Resources */,
-				5EBAD9F228A1A1BC008CD86E /* GoogleService-Info.plist in Resources */,
+				014173A828A4971A0006A02A /* GoogleService-Info.plist in Resources */,
 				01CDE9F42891F5EB002DC49C /* Assets.xcassets in Resources */,
 				01CDE9F22891F5EB002DC49C /* Main.storyboard in Resources */,
 			);

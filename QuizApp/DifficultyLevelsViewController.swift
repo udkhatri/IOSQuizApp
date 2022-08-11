@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class DifficultyLevelsViewController: UIViewController {
     let db = Firestore.firestore()
+    var selectedCategory: String?
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userScore: UILabel!
@@ -28,16 +29,24 @@ class DifficultyLevelsViewController: UIViewController {
     @IBAction func onLogoutButtonTapped(_ sender: UIButton) {
         logoutUser()
     }
-    @IBAction func onDifficultButtonTapped(_ sender: UIButton) {
+
+    @IBAction func onCategoryButtonTapped(_ sender: UIButton) {
+        if let selectedCategory = sender.titleLabel?.text{
+            print("selectedCategory\(selectedCategory)")
+
+        }
         performSegue(withIdentifier: "goToQuestionScreen", sender: self)
+
     }
-    @IBAction func onNormalButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToQuestionScreen", sender: self)
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToQuestionScreen" {
+                let destination = segue.destination as! QuestionViewController
+                destination.category = selectedCategory
+       
+        }
     }
-    @IBAction func onEasyButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToQuestionScreen", sender: self)
-    }
-   
+
     func checkUser(){
         if Auth.auth().currentUser != nil {
             let user = Auth.auth().currentUser
