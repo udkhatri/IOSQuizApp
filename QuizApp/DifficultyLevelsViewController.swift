@@ -33,17 +33,17 @@ class DifficultyLevelsViewController: UIViewController {
     @IBAction func onCategoryButtonTapped(_ sender: UIButton) {
         if let selectedCategory = sender.titleLabel?.text{
             print("selectedCategory\(selectedCategory)")
-
         }
         performSegue(withIdentifier: "goToQuestionScreen", sender: self)
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "goToQuestionScreen" {
                 let destination = segue.destination as! QuestionViewController
                 destination.category = selectedCategory
-       
+//                destination.currentScore = Int(userScore.text ?? "0")
         }
     }
 
@@ -73,11 +73,11 @@ class DifficultyLevelsViewController: UIViewController {
             if let document = document, document.exists {
                 let dataDescription = document.data()
                 let name = dataDescription?["name"] as? String ?? "Guest"
-                let score = dataDescription?["score"] as? String ?? "0"
-                print("Document data: \(name)")
+                let score = dataDescription?["score"] as? Int ?? 0
+                print("Document data: \(score)")
                 
                 self.userName.text = "Hello, \(name)"
-                self.userScore.text = score
+                self.userScore.text = String(score)
             } else {
                 print("Document does not exist")
             }
@@ -91,14 +91,5 @@ class DifficultyLevelsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
          }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
