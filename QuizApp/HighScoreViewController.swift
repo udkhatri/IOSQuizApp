@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+import FirebaseFirestore
 class HighScoreViewController: UIViewController {
-
+    let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,13 +18,8 @@ class HighScoreViewController: UIViewController {
     @IBAction func onBackButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    @IBAction func onLeaderScoreButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToLeaderScoreScreen", sender: self)
-    }
-    @IBAction func onPersonalButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "gotToPersonalScoreScreen", sender: self)
-    }
-    
+   
+   
     /*
     // MARK: - Navigation
 
