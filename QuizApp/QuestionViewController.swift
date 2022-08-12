@@ -8,10 +8,14 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import UIKit
 
 class QuestionViewController: UIViewController {
     let db = Firestore.firestore()
     let auth = Auth.auth()
+    let defaults = UserDefaults.standard
+    let userScoreCode = "UserScore"
+    let selectedCategoryCode = "SelectedCategory"
     @IBOutlet weak var answerDLabel: UIButton!
     @IBOutlet weak var answerCLabel: UIButton!
     @IBOutlet weak var answerBLabel: UIButton!
@@ -19,7 +23,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var QuestionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UIButton!
     var category: String?
-    var currentScore: Int?
+    var currentScore: String?
     var correctAnswer: String?
     var answer1: String?
     var answer2: String?
@@ -32,17 +36,23 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         
         scoreLabel.setTitle("Current score: \(score)", for: .normal)
-        guard category == nil else{
-            print("no category")
-            return
+        if let score = defaults.string(forKey: userScoreCode) {
+            self.currentScore = score
         }
-        guard currentScore == nil else {
-            return
+        if let category = defaults.string(forKey: selectedCategoryCode) {
+            self.category = category
+            showQuiz(category: category)
+            print("Cat is ",category)
+        }
+        else{
+            if let category = category {
+                print("Cat is ",category)
+                showQuiz(category: category)
+            }
         }
         QuestionLabel.layer.masksToBounds = true
         QuestionLabel.layer.cornerRadius = 16
-        print("cat is: \(String(describing: category)) and score is: \(currentScore)")
-        showQuiz(category: category ?? "HTML")
+       
     }
     
     @IBAction func onAnswerATapped(_ sender: UIButton) {
@@ -70,7 +80,10 @@ class QuestionViewController: UIViewController {
                     score = score + 1
                     scoreLabel.setTitle("Current score: \(score)", for: .normal)
                     storeUserScore()
-                    showQuiz(category: self.category ?? "")
+                    if let category = category {
+                        print("Cat is ",category)
+                        showQuiz(category: category)
+                    }
                 }))
                 self.present(alert, animated: true,completion: nil)
             }
@@ -78,7 +91,10 @@ class QuestionViewController: UIViewController {
         }else{
             let alert = UIAlertController(title: "Oops! you've clicked wrong answer.", message: " Want to re-start?", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler:{ (UIAlertAction)in
-                self.showQuiz(category: self.category ?? "")
+                if let category = self.category {
+                    print("Cat is ",category)
+                    self.showQuiz(category: category)
+                }
                 self.score = 0
                 self.scoreLabel.setTitle("Current score: \(self.score)", for: .normal)
             }))
@@ -104,7 +120,7 @@ class QuestionViewController: UIViewController {
             print("Network call completion")
             
             guard error == nil else{
-                print(error)
+                print("Error is: ",error)
                 return
             }
             
@@ -154,11 +170,19 @@ class QuestionViewController: UIViewController {
         do{
             question = try decoder.decode([QuizResponse].self, from: data)
             print("question:\(question)")
+            return question
         }catch{
-            showQuiz(category: category ?? "")
+            if let category = self.category {
+                print("Cat is in error ",category)
+                showQuiz(category: category)
+            }else{
+                print("Error")
+            }
+          
             print("Error decoding")
+            return question
         }
-        return question
+       
     }
     
     private func getUrl(category:String)-> URL?{
@@ -174,7 +198,24 @@ class QuestionViewController: UIViewController {
         return URL(string: url)
     }
     func storeUserScore(){
-        print("Current score: \(currentScore), main score: \(score)")
+        if let currentScore = currentScore {
+            if (Int(currentScore)! < Int(score)){
+                let currentUser = auth.currentUser?.uid
+                if let userId = currentUser {
+                    let userRed = db.collection("users").document(userId)
+                    userRed.updateData([
+                        "score": self.score,
+                    ]){ err in
+                        if let err = err {
+                            print("Error adding document: \(err)")
+                        } else {
+                            print("Document added with ID: \(userRed.documentID)")
+                        }
+                    }
+                }
+           
+            }
+        } else {
             let currentUser = auth.currentUser?.uid
             if let userId = currentUser {
                 let userRed = db.collection("users").document(userId)
@@ -187,10 +228,12 @@ class QuestionViewController: UIViewController {
                         print("Document added with ID: \(userRed.documentID)")
                     }
                 }
-        
-        
-        }
+            }
        
+        }
+        
+        print("Current score: \(currentScore), main score: \(score)")
+            
        
     }
     struct QuizResponse: Decodable{

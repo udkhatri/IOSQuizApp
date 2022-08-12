@@ -8,10 +8,16 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import UIKit
 
 class DifficultyLevelsViewController: UIViewController {
     let db = Firestore.firestore()
     var selectedCategory: String?
+    let defaults = UserDefaults.standard
+    
+    let userNameCode = "UserName"
+    let userScoreCode = "UserScore"
+    let selectedCategoryCode = "SelectedCategory"
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userScore: UILabel!
@@ -37,17 +43,15 @@ class DifficultyLevelsViewController: UIViewController {
     @IBAction func onCategoryButtonTapped(_ sender: UIButton) {
         if let selectedCategory = sender.titleLabel?.text{
             print("selectedCategory\(selectedCategory)")
+            self.defaults.set(selectedCategory, forKey:self.selectedCategoryCode)
         }
         performSegue(withIdentifier: "goToQuestionScreen", sender: self)
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "goToQuestionScreen" {
                 let destination = segue.destination as! QuestionViewController
-                destination.category = selectedCategory
-//                destination.currentScore = Int(userScore.text ?? "0")
         }
     }
 
@@ -79,7 +83,8 @@ class DifficultyLevelsViewController: UIViewController {
                 let name = dataDescription?["name"] as? String ?? "Guest"
                 let score = dataDescription?["score"] as? Int ?? 0
                 print("Document data: \(score)")
-                
+                self.defaults.set(name, forKey:self.userNameCode)
+                self.defaults.set(score, forKey:self.userScoreCode)
                 self.userName.text = "Hello, \(name)"
                 self.userScore.text = String(score)
             } else {

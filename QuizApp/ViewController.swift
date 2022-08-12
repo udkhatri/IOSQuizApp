@@ -7,8 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import UIKit
 
 class ViewController: UIViewController {
+    
     var userId: String = "11"
     var isUserLogedIn: Bool = false
     override func viewDidLoad() {
@@ -26,7 +28,6 @@ class ViewController: UIViewController {
     }
     @IBAction func onStartButtonTapped(_ sender: UIButton) {
         checkUser()
-       
     }
     func alert(message:String){
         let alert = UIAlertController(title: "title", message: message, preferredStyle: UIAlertController.Style.alert)
