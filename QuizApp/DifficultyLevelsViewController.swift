@@ -30,6 +30,10 @@ class DifficultyLevelsViewController: UIViewController {
         logoutUser()
     }
 
+    @IBAction func onAboutButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToAboutScreen", sender: self)
+        
+    }
     @IBAction func onCategoryButtonTapped(_ sender: UIButton) {
         if let selectedCategory = sender.titleLabel?.text{
             print("selectedCategory\(selectedCategory)")
