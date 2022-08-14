@@ -183,20 +183,8 @@ class QuestionViewController: UIViewController {
             return question
         }catch{
             if let category = self.category {
-                if(count < 10){
                     print("Cat is in error ",category)
                     showQuiz(category: "")
-                }else{
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
-                            self.dismiss(animated: true)
-                        }))
-                        self.present(alert, animated: true,completion: nil)
-                    }
-                   
-                }
-             
             }else{
                 print("Error")
             }
@@ -253,9 +241,7 @@ class QuestionViewController: UIViewController {
                     }
                 }
             }
-       
         }
-        
         print("Current score: \(currentScore), main score: \(score)")
             
        
