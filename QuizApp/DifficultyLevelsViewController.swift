@@ -29,7 +29,11 @@ class DifficultyLevelsViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("it will aprear")
+        checkUser()
+    }
     @IBAction func onScoreBoardButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "goToPersonalScoreScreen", sender: self)
     }
@@ -54,6 +58,7 @@ class DifficultyLevelsViewController: UIViewController {
        
         if segue.identifier == "goToQuestionScreen" {
                 let destination = segue.destination as! QuestionViewController
+            
         }
     }
 

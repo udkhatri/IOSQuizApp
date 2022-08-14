@@ -52,6 +52,7 @@ class QuestionViewController: UIViewController {
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
+                        self.passValueBack()
                         self.dismiss(animated: true)
                     }))
                     self.present(alert, animated: true,completion: nil)
@@ -62,7 +63,17 @@ class QuestionViewController: UIViewController {
         QuestionLabel.layer.cornerRadius = 16
        
     }
-    
+    func passValueBack(){
+        if let presenter = presentingViewController as? DifficultyLevelsViewController {
+            print("presenter is: ",presenter.userScore.text)
+            if let currentScore = self.currentScore {
+                if (Int(currentScore)! < Int(self.score)){
+                    presenter.userScore.text = String(currentScore)
+                }
+            }
+    }
+        
+    }
     @IBAction func onAnswerATapped(_ sender: UIButton) {
         getRightAnswer(selectedAnswer: "answer_a")
         
@@ -107,6 +118,7 @@ class QuestionViewController: UIViewController {
                     self.scoreLabel.setTitle("Current score: \(self.score)", for: .normal)
                 }))
                 alert.addAction(UIAlertAction(title: "No", style: .default, handler:{ (UIAlertAction)in
+                    self.passValueBack()
                     self.dismiss(animated: true)
                 }))
                 self.present(alert, animated: true,completion: nil)
@@ -116,6 +128,7 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func onQuitButtonTapped(_ sender: UIButton) {
+        self.passValueBack()
         dismiss(animated: true)
     }
     
