@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
-import UIKit
 
 class DifficultyLevelsViewController: UIViewController {
     let db = Firestore.firestore()

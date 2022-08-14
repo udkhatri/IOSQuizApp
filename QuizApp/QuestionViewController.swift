@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
-import UIKit
 
 class QuestionViewController: UIViewController {
     let db = Firestore.firestore()
@@ -29,7 +28,7 @@ class QuestionViewController: UIViewController {
     var answer2: String?
     var answer3: String?
     var answer4: String?
-    
+    var count: Int = 0
     var score : Int = 0
     
     override func viewDidLoad() {
@@ -45,9 +44,16 @@ class QuestionViewController: UIViewController {
             print("Cat is ",category)
         }
         else{
-            if let category = category {
+            if let category = self.category {
                 print("Cat is ",category)
                 showQuiz(category: category)
+            }
+            else{
+                let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
+                    self.dismiss(animated: true)
+                }))
+                self.present(alert, animated: true,completion: nil)
             }
         }
         QuestionLabel.layer.masksToBounds = true
@@ -173,12 +179,21 @@ class QuestionViewController: UIViewController {
             return question
         }catch{
             if let category = self.category {
-                print("Cat is in error ",category)
-                showQuiz(category: category)
+                if(count < 10){
+                    print("Cat is in error ",category)
+                    showQuiz(category: "")
+                }else{
+                    let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
+                        self.dismiss(animated: true)
+                    }))
+                    self.present(alert, animated: true,completion: nil)
+                }
+             
             }else{
                 print("Error")
             }
-          
+            count = count+1
             print("Error decoding")
             return question
         }
