@@ -49,11 +49,13 @@ class QuestionViewController: UIViewController {
                 showQuiz(category: category)
             }
             else{
-                let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
-                    self.dismiss(animated: true)
-                }))
-                self.present(alert, animated: true,completion: nil)
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
+                        self.dismiss(animated: true)
+                    }))
+                    self.present(alert, animated: true,completion: nil)
+                    }
             }
         }
         QuestionLabel.layer.masksToBounds = true
@@ -80,7 +82,6 @@ class QuestionViewController: UIViewController {
     func getRightAnswer(selectedAnswer: String){
         if(correctAnswer == selectedAnswer){
             DispatchQueue.main.async { [self] in
-                
                 let alert = UIAlertController(title: "Yay!", message: " you've got right answer, Click next for next question", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Next", style: .cancel, handler:{ [self] (UIAlertAction)in
                     score = score + 1
@@ -95,19 +96,22 @@ class QuestionViewController: UIViewController {
             }
             
         }else{
-            let alert = UIAlertController(title: "Oops! you've clicked wrong answer.", message: " Want to re-start?", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler:{ (UIAlertAction)in
-                if let category = self.category {
-                    print("Cat is ",category)
-                    self.showQuiz(category: category)
-                }
-                self.score = 0
-                self.scoreLabel.setTitle("Current score: \(self.score)", for: .normal)
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler:{ (UIAlertAction)in
-                self.dismiss(animated: true)
-            }))
-            self.present(alert, animated: true,completion: nil)
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Oops! you've clicked wrong answer.", message: " Want to re-start?", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler:{ (UIAlertAction)in
+                    if let category = self.category {
+                        print("Cat is ",category)
+                        self.showQuiz(category: category)
+                    }
+                    self.score = 0
+                    self.scoreLabel.setTitle("Current score: \(self.score)", for: .normal)
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .default, handler:{ (UIAlertAction)in
+                    self.dismiss(animated: true)
+                }))
+                self.present(alert, animated: true,completion: nil)
+            }
+       
         }
     }
     
@@ -183,11 +187,14 @@ class QuestionViewController: UIViewController {
                     print("Cat is in error ",category)
                     showQuiz(category: "")
                 }else{
-                    let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
-                        self.dismiss(animated: true)
-                    }))
-                    self.present(alert, animated: true,completion: nil)
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "ERROR!", message: "There was a error from the server. Please try again.", preferredStyle: .actionSheet)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction)in
+                            self.dismiss(animated: true)
+                        }))
+                        self.present(alert, animated: true,completion: nil)
+                    }
+                   
                 }
              
             }else{
@@ -215,6 +222,7 @@ class QuestionViewController: UIViewController {
     func storeUserScore(){
         if let currentScore = currentScore {
             if (Int(currentScore)! < Int(score)){
+                self.defaults.set(score, forKey:self.userScoreCode)
                 let currentUser = auth.currentUser?.uid
                 if let userId = currentUser {
                     let userRed = db.collection("users").document(userId)
@@ -231,6 +239,7 @@ class QuestionViewController: UIViewController {
            
             }
         } else {
+            self.defaults.set(score, forKey:self.userScoreCode)
             let currentUser = auth.currentUser?.uid
             if let userId = currentUser {
                 let userRed = db.collection("users").document(userId)

@@ -24,6 +24,9 @@ class DifficultyLevelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkUser()
+        if let score = defaults.string(forKey: userScoreCode) {
+            self.userScore.text = String(score)
+        }
         // Do any additional setup after loading the view.
     }
     
