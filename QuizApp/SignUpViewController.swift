@@ -67,7 +67,7 @@ class SignUpViewController: UIViewController {
                     guard let user = authResult?.user else {return}
                     
                     guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    self.showAlert(title: "Signup successful", message: "You can now Login to access your account" )
+                    self.showSuccessAlert(title: "Signup successful", message: "You can now go and play the game" )
                     self.createUser(name: name , email: user.email ?? "", id: user.uid , signupMode: providerID)
                 
                 }
@@ -97,6 +97,13 @@ class SignUpViewController: UIViewController {
         }
     }
     func showAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+         }
+    
+    func showSuccessAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
             self.goToHomeScreen()}))
