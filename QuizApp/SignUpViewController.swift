@@ -76,8 +76,8 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func goToLoginScreen(){
-        performSegue(withIdentifier: "goToLoginScreen", sender: self)
+    func goToHomeScreen(){
+        performSegue(withIdentifier: "gotoHomeScreen", sender: self)
     }
     
     func createUser(name:String, email:String,id:String, signupMode:String){
@@ -99,7 +99,7 @@ class SignUpViewController: UIViewController {
     func showAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
-            self.goToLoginScreen()}))
+            self.goToHomeScreen()}))
         self.present(alert, animated: true, completion: nil)
         
          }

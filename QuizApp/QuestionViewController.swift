@@ -66,10 +66,10 @@ class QuestionViewController: UIViewController {
     }
     func passValueBack(){
         if let presenter = presentingViewController as? DifficultyLevelsViewController {
-            print("presenter is: ",presenter.userScore.text)
+            print("presenter is: ",presenter.userScore.text!)
             if let currentScore = self.currentScore {
                 if (Int(currentScore)! < Int(self.score)){
-                    presenter.userScore.text = String(currentScore)
+                    presenter.userScore.text = String(score)
                 }
             }
     }
