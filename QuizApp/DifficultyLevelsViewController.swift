@@ -75,7 +75,7 @@ class DifficultyLevelsViewController: UIViewController {
         catch {
             print("already logged out")
         }
-        dismiss(animated: true)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     func getUserData(id: String){
         let docRef = db.collection("users").document(id)

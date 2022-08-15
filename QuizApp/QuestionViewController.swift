@@ -30,6 +30,7 @@ class QuestionViewController: UIViewController {
     var answer4: String?
     var count: Int = 0
     var score : Int = 0
+    var onDoneBlock : ((Bool) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -52,9 +52,7 @@ class SignUpViewController: UIViewController {
     @IBAction func nameValueChange(_ sender: Any) {
     }
     
-    func goToHomeScreen(){
-        performSegue(withIdentifier: "gotoHomeScreen", sender: self)
-    }
+
     func signUpUser (email: String, password: String, name:String){
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             var isSuccess: Bool = true
@@ -69,14 +67,19 @@ class SignUpViewController: UIViewController {
                     guard let user = authResult?.user else {return}
                     
                     guard let providerID = authResult?.additionalUserInfo?.providerID else {return}
-                    self.showAlert(title: "Signup successful", message: "Login by pressing back from this menu to access your account" )
+                    self.showAlert(title: "Signup successful", message: "You can now Login to access your account" )
                     self.createUser(name: name , email: user.email ?? "", id: user.uid , signupMode: providerID)
-                    self.goToHomeScreen()
+                
                 }
                
             }
         }
     }
+    
+    func goToLoginScreen(){
+        performSegue(withIdentifier: "goToLoginScreen", sender: self)
+    }
+    
     func createUser(name:String, email:String,id:String, signupMode:String){
         let userRed = db.collection("users").document(id)
         userRed.setData([
@@ -95,8 +98,10 @@ class SignUpViewController: UIViewController {
     }
     func showAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
+            self.goToLoginScreen()}))
         self.present(alert, animated: true, completion: nil)
+        
          }
 
     
