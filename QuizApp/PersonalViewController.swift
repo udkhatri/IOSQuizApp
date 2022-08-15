@@ -32,7 +32,7 @@ class PersonalViewController: UIViewController {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        let user = "\(document.data()["name"] ?? "") : \(document.data()["score"] ?? "")"
+                        let user = "\(document.data()["score"] ?? "") : \(document.data()["name"] ?? "")"
                         self.userlist.append(user)
                     }
                     self.user1.text = self.userlist[0]
