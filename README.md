@@ -52,9 +52,13 @@ $ cd IOSQuizApp
 ```
 
 > Go to firebase console and create a new ios project
+
 > Go to project setting and download the google services file  (googleServices.plist)
+
 > Open the project in xcode
+
 > Drag and drop the googleServices.plist file to in xcode
+ 
 > Press run
 
 ## You may also like...
