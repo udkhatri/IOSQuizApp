@@ -61,6 +61,20 @@ $ cd IOSQuizApp
  
 > Press run
 
+<!-- Contributing -->
+## :wave: Contributor
+
+<a href="https://github.com/ivanb47">
+  <img src="https://avatars.githubusercontent.com/u/100738961?v=4" style="width:50px;height:50px;border-radius: 50%" />
+</a>
+<a href="https://github.com/udkhatri">
+  <img src="https://avatars.githubusercontent.com/u/34532828?s=400&u=711ae709e314cb56700d4cf46ccbd55b4be5645a&v=4" style="width:50px;height:50px;border-radius: 50%" />
+  <a href="https://github.com/HarpritKaurSidhu">
+  <img src="https://avatars.githubusercontent.com/u/35619714?v=4" style="width:50px;height:50px;border-radius: 50%" />
+</a>
+</a>
+
+
 ## You may also like...
 
 - [Weather app in iOS](https://github.com/udkhatri/WeatherAppIos)
