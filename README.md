@@ -19,10 +19,13 @@
 ### :camera: Demo video of the application
 
 <div align="center">
-
-https://user-images.githubusercontent.com/34532828/189505007-884e062b-263b-45c7-b820-75a7fb6270ab.mp4
+  
+https://user-images.githubusercontent.com/34532828/190877324-22be43ab-1442-4acd-8c8e-5919a4e71ff9.mp4
 
 </div>
+
+
+
 
 <!-- TechStack -->
 
