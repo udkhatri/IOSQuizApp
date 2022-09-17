@@ -79,4 +79,5 @@ $ cd IOSQuizApp
 
 - [Weather app in iOS](https://github.com/udkhatri/WeatherAppIos)
 - [tikTok clone in react native](https://github.com/udkhatri/TikTokClone)
+- [Social media application like instagram](https://github.com/udkhatri/SocialApp)
 - [recepie finding sand saving progressive web app](https://github.com/udkhatri/PWAProject)
